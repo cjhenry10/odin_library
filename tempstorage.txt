@@ -1,0 +1,32 @@
+function addToPage() {
+    //clear children
+    while (library.firstChild) library.removeChild(library.firstChild);
+
+    // loop through each book
+    myLibrary.forEach(book => {
+        // create book html element and paragraphs to hold details
+        let newBook = document.createElement("div");
+        let titlePar = document.createElement("p");
+        titlePar.textContent = `Title: ${book.title}`
+        newBook.appendChild(titlePar);
+        let authorPar = document.createElement("p");
+        authorPar.textContent = `Author: ${book.author}`
+        newBook.appendChild(authorPar);
+        let pagesPar = document.createElement("p");
+        pagesPar.textContent = `Pages: ${book.pages}`
+        newBook.appendChild(pagesPar);
+        let readPar = document.createElement("p");
+        readPar.textContent = `Read: ${book.read}`
+        newBook.appendChild(readPar);
+
+        // add classes to apply styles
+        newBook.classList.add("col-lg-4");
+        newBook.classList.add("col-md-6");
+        newBook.classList.add("col-12");
+
+        // add to library on page
+        library.appendChild(newBook);
+    });
+}
+
+addToPage();
